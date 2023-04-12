@@ -49,13 +49,15 @@ public class MainActivity extends AppCompatActivity {
                                         info.getString("name"),
                                         info.getString("language"),
                                         info.getString("premiered"),
-                                        info.getString("summary")
+                                        info.getString("summary"),
+                                        info.getJSONObject("image").getString("medium"),
+                                        info.getString("id")
                                 ));
                             }
                             if(response.length()>0){
                                 showAdapter = new ShowAdapter(arrayListAllShows, MainActivity.this);
                                 recyclerViewShows.setHasFixedSize(true);
-                                recyclerViewShows.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
+                                recyclerViewShows.setLayoutManager(new GridLayoutManager(getApplicationContext(), 3));
                                 recyclerViewShows.setAdapter(showAdapter);
                                 showAdapter.notifyDataSetChanged();
                             }

@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
@@ -42,16 +44,18 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.textViewShowName.setText(arrayListAllShow.get(position).getShowName());
+        Picasso.with(context).load(arrayListAllShow.get(position).getShowImageUrl()).into(holder.imageViewShow);
 
         //On click listener
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ShowDetailActivity.class);
-                intent.putExtra("show_name",arrayListAllShow.get(position).getShowName());
+                intent.putExtra("show_id",arrayListAllShow.get(position).getShowId());
                 intent.putExtra("show_language",arrayListAllShow.get(position).getShowLanguage());
                 intent.putExtra("show_premiered",arrayListAllShow.get(position).getShowPremiered());
                 intent.putExtra("show_summary",arrayListAllShow.get(position).getShowSummary());
+                intent.putExtra("show_img_url",arrayListAllShow.get(position).getShowImageUrl());
                 context.startActivity(intent);
             }
         });
@@ -66,11 +70,13 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder{
         //Declaration
         private TextView textViewShowName;
+        private ImageView imageViewShow;
         private LinearLayout parent;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewShowName = itemView.findViewById(R.id.tv_show_name);
+            imageViewShow =  itemView.findViewById(R.id.ic_show_image);
             //The container
             parent = itemView.findViewById(R.id.single_show);
         }

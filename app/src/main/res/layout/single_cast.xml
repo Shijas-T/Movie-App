@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/single_show">
+    android:id="@+id/single_cast">
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:id="@+id/card_cast"
         app:cardUseCompatPadding="true"
         app:cardElevation="1dp"
-
         app:cardCornerRadius="10dp"
-        android:id="@+id/card_show"
         android:layout_gravity="center">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical" >
             <ImageView
                 android:scaleType="fitCenter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ic_show_image"/>
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:id="@+id/ic_cast_image"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="show name"
+                android:text="cast name"
                 android:textSize="12sp"
                 android:padding="8dp"
-                android:id="@+id/tv_show_name"
+                android:id="@+id/tv_cast_name"
                 android:textColor="@color/black"/>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
