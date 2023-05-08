@@ -8,10 +8,8 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         app:cardUseCompatPadding="true"
         app:cardElevation="1dp"
-
         app:cardCornerRadius="10dp"
         android:id="@+id/card_show"
         android:layout_gravity="center">
